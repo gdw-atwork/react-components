@@ -1,6 +1,7 @@
 var path = require('path')
 
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var DEMO_DIR = path.resolve(__dirname, 'src/demo')
 var SOURCE_DIR = path.resolve(__dirname, 'src')
@@ -27,6 +28,9 @@ var demoConfig = {
             query: {
                 presets: ['es2015', 'react', 'stage-0']
             }
+        }, {
+            test: /\.(css|scss)$/,
+            loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
         }]
     },
     plugins: [new HtmlWebpackPlugin({
@@ -48,10 +52,32 @@ var demoConfig = {
     }
 }
 
+var cssConfig = {
+    entry: {
+        'build/style': SOURCE_DIR + '/style.js'
+    },
+    module: {
+        loaders: [{
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract(
+                'style',
+                'css?sourceMap!sass?sourceMap'
+            )
+        }]
+    },
+    plugins: [new ExtractTextPlugin('dist/react-components.css')],
+    output: {
+        path: ROOT_DIR,
+        filename: '[name].js'
+    }
+}
+
 var configs = []
 
 if (env.demo) {
     configs.push(demoConfig)
+} else {
+    configs.push(cssConfig)
 }
 
 module.exports = configs
