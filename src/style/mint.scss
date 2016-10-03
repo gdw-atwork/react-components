@@ -1,0 +1,12 @@
+@import '_config';
+
+@import '../components/button/button.mixins';
+
+.mint {
+	background: $color--mint-cream;
+
+	@include rc-button(
+		$font-color: $color--mint,
+		$background-color: $color--very-light-magenta
+	)
+}

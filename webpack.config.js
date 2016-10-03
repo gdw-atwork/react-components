@@ -66,9 +66,58 @@ var cssConfig = {
         }]
     },
     plugins: [new ExtractTextPlugin('dist/react-components.css')],
+    sassLoader: {
+        includePaths: ['src/style']
+    },
     output: {
         path: ROOT_DIR,
         filename: '[name].js'
+    }
+}
+
+var rcConfig = {
+    entry: {
+        'dist/react-components': SOURCE_DIR + '/components.js'
+    },
+    resolve: {
+        root: [SOURCE_DIR],
+        extensions: ['', '.js', '.jsx', '.json']
+    },
+    module: {
+        preLoaders: [{
+            test: /\.(js|jsx)$/,
+            include: SOURCE_DIR,
+            loader: 'eslint'
+        }],
+        loaders: [{
+            test: /\.(js|jsx)$/,
+            include: SOURCE_DIR,
+            loader: 'babel',
+            query: {
+                presets: ['es2015', 'react', 'stage-0']
+            }
+        }, {
+            test: /\.(css|scss)$/,
+            loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        }]
+    },
+    devtool: 'source-map',
+    externals: {
+        'React': 'react',
+        'ReactDOM': 'react-dom'
+    },
+    eslint: {
+        failOnWarning: false,
+        failOnError: true
+    },
+    sassLoader: {
+        includePaths: ['src/style']
+    },
+    output: {
+        path: ROOT_DIR,
+        filename: '[name].js',
+        library: 'rc',
+        libraryTarget: 'commonjs2'
     }
 }
 
@@ -77,6 +126,7 @@ var configs = []
 if (env.demo) {
     configs.push(demoConfig)
 } else {
+    configs.push(rcConfig)
     configs.push(cssConfig)
 }
 
