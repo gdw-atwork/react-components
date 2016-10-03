@@ -1,0 +1,10 @@
+
+rc-button {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	cursor: pointer;
+
+	&[disabled='disabled'] {
+		pointer-events: none;
+	}
+}

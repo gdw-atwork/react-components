@@ -1,0 +1,54 @@
+@import '_config';
+
+@mixin rc-button (
+	$font-color: #ffffff,
+	$background-color: #000000,
+	$disabled-opacity: 0.4,
+	$vertical-padding: 4px,
+	$horizontal-padding: 8px,
+	$border-radius: 3px
+	) {
+	rc-button {
+		display: inline-block;
+		overflow: hidden;
+
+		outline: none;
+		border: 0;
+		margin: 0;
+		padding: $vertical-padding $horizontal-padding;
+		border-radius: $border-radius;
+
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		text-align: center;
+		vertical-align: middle;
+		text-transform: uppercase;
+
+		color: $font-color;
+		background-color: $background-color;
+
+		&[disabled='disabled'] {
+			opacity: $disabled-opacity;
+		}
+	}
+}
+
+@mixin rc-button-secondary (
+	$font-color: #ffffff,
+	$background-color: #000000
+	) {
+	rc-button[level='secondary'] {
+		color: $font-color;
+		background-color: $background-color;
+	}
+}
+
+@mixin rc-button-tertiary (
+	$font-color: #ffffff,
+	$background-color: #000000
+	) {
+	rc-button[level='tertiary'] {
+		color: $font-color;
+		background-color: $background-color;
+	}
+}

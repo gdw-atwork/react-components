@@ -1,5 +1,12 @@
 @import '_config';
 
+@import '../components/button/button.mixins';
+
 .vanilla {
-	background: $color--vanilla
+	background: $color--light-grayish-yellow;
+
+	@include rc-button(
+		$font-color: $color--vanilla,
+		$background-color: $color--soft-blue
+	)
 }
