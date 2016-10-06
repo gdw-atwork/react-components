@@ -1,6 +1,6 @@
 @import '../style/_config';
 
-header {
+.demo-header {
 	padding: 20px;
 
 	h1 {
@@ -10,4 +10,12 @@ header {
 
 #DemoContainer {
 	padding: 0 20px;
+
+	section {
+		padding: 20px 0;
+	}
+}
+
+input.error {
+	color: red;
 }
