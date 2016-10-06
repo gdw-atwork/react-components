@@ -1,0 +1,14 @@
+@import '_config';
+
+@mixin rc-simple-bar-chart (
+    $font-color: white,
+    $bar-color: steelblue
+    ) {
+    rc-simple-bar-chart {
+        div {
+            font: 10px sans-serif;
+            background-color: $bar-color;
+            color: $font-color;
+        }
+    }
+}
