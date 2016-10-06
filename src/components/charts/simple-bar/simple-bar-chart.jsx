@@ -10,6 +10,47 @@ export class SimpleBarChart extends Component {
         width: PropTypes.number.isRequired
     }
 
+<<<<<<< HEAD
+=======
+    // constructor () {
+    //     super()
+    //     this.state = {}
+
+    //     this.componentWillMount = this.componentWillMount.bind(this)
+    //     this.connectFauxDOM = this.connectFauxDOM.bind(this)
+    //     this.drawFauxDOM = this.drawFauxDOM.bind(this)
+    // }
+
+    // componentDidMount = () => {
+    //     const node = this.connectFauxDOM('div', 'chart')
+
+    //     this.update = (data, width) => {
+    //         const scale = d3.scaleLinear()
+    //                             .domain([0, d3.max(data)])
+    //                             .range([0, width])
+
+    //         d3.select(node).selectAll('div')
+    //             .data(data)
+    //                 .enter().append('div')
+    //                     .style('width', (d) => (scale(d) + 'px'))
+    //                     .text(d => d)
+    //     }
+
+    //     this.update(this.props.data, this.props.width)
+    // }
+
+    // componentWillUpdate = (nextProps, nextState) => {
+    //     this.update(nextProps.data, nextProps.width)
+    //     console.log({nextProps, nextState})
+    // }
+
+    // render () {
+    //     return (<rc-simple-bar-chart>
+    //       {this.state['chart']}
+    //     </rc-simple-bar-chart>)
+    // }
+
+>>>>>>> e61370a289f7d4380bdbad94b994c8091dcc3bbd
     render () {
         const {data, width} = this.props
         const node = ReactFauxDOM.createElement('rc-simple-bar-chart')
@@ -27,3 +68,10 @@ export class SimpleBarChart extends Component {
         return node.toReact()
     }
 }
+<<<<<<< HEAD
+=======
+
+// SimpleBarChart.prototype.componentWillMount = Faux.mixins.core.componentWillMount
+// SimpleBarChart.prototype.connectFauxDOM = Faux.mixins.core.connectFauxDOM
+// SimpleBarChart.prototype.drawFauxDOM = Faux.mixins.core.drawFauxDOM
+>>>>>>> e61370a289f7d4380bdbad94b994c8091dcc3bbd
