@@ -5,11 +5,13 @@ import 'normalize.css'
 import '../../dist/react-components.css'
 import './demo.scss'
 
-import * as rc from '../../dist/react-components'
+import rc from '../../dist/react-components'
 
 window.console && console.log && console.log('>>>>>> react-components <<<<<<<<<')
 window.console && console.log && console.log({rc})
 window.console && console.log && console.log('>>>>>> react-components <<<<<<<<<')
+
+import {SimpleBarChartDemo} from './charts/simple-bar-chart.jsx'
 
 class Demo extends Component {
     constructor () {
@@ -31,15 +33,15 @@ class Demo extends Component {
     render () {
         const classes = [this.state.selectedStyle]
 
-        return (
-          <main className={classes.join(' ')}>
+        return (<div className={classes.join(' ')}>
+          <main>
             <h4>
               Style Selection:&nbsp;
               <rc.Button onItemClick={this.styleToggle(this)}>{this.state.selectedStyle}</rc.Button>
             </h4>
-            <p>This page demonstrates the components available in this library.</p>
           </main>
-        )
+          <SimpleBarChartDemo />
+        </div>)
     }
 }
 

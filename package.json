@@ -41,7 +41,10 @@
       "command": "better-npm-run clean && better-npm-run build:dist && better-npm-run build:demo"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^4.2.6",
+    "react-faux-dom": "^3.0.0"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
