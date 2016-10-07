@@ -1,7 +1,8 @@
 @import '_config';
 
 @import '../components/button/button.mixins';
-@import '../components/charts/simple-bar/simple-bar-chart.mixins';
+@import '../components/charts/bar/html.mixins';
+@import '../components/charts/bar/simple.mixins';
 
 .vanilla {
 	background: $color--light-grayish-yellow;
@@ -9,6 +10,11 @@
 	@include rc-button(
 		$font-color: $color--vanilla,
 		$background-color: $color--soft-blue
+	)
+
+	@include rc-html-bar-chart(
+		$font-color: $color--vanilla,
+		$bar-color: $color--soft-blue
 	)
 
 	@include rc-simple-bar-chart(

@@ -1,7 +1,8 @@
 @import '_config';
 
 @import '../components/button/button.mixins';
-@import '../components/charts/simple-bar/simple-bar-chart.mixins';
+@import '../components/charts/bar/html.mixins';
+@import '../components/charts/bar/simple.mixins';
 
 .mint {
 	background: $color--mint-cream;
@@ -9,6 +10,11 @@
 	@include rc-button(
 		$font-color: $color--mint,
 		$background-color: $color--very-light-magenta
+	)
+
+	@include rc-html-bar-chart(
+		$font-color: $color--mint,
+		$bar-color: $color--very-light-magenta
 	)
 
 	@include rc-simple-bar-chart(

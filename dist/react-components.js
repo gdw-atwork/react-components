@@ -58,7 +58,7 @@ module.exports =
 	
 	exports.default = _extends({
 	    styles: ['default', 'vanilla', 'mint']
-	}, __webpack_require__(/*! ./components/button/button */ 1), __webpack_require__(/*! ./components/charts/simple-bar/simple-bar-chart */ 39), __webpack_require__(/*! ./components/charts/simple-line/simple-line-chart */ 59));
+	}, __webpack_require__(/*! ./components/button/button */ 1), __webpack_require__(/*! ./components/charts/bar/html */ 39), __webpack_require__(/*! ./components/charts/bar/simple */ 59), __webpack_require__(/*! ./components/charts/line/simple */ 62));
 
 /***/ },
 /* 1 */
@@ -4774,9 +4774,9 @@ module.exports =
 
 /***/ },
 /* 39 */
-/*!***************************************************************!*\
-  !*** ./src/components/charts/simple-bar/simple-bar-chart.jsx ***!
-  \***************************************************************/
+/*!********************************************!*\
+  !*** ./src/components/charts/bar/html.jsx ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4784,7 +4784,7 @@ module.exports =
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.SimpleBarChart = undefined;
+	exports.HtmlBarChart = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -4798,7 +4798,7 @@ module.exports =
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	__webpack_require__(/*! ./simple-bar-chart.scss */ 57);
+	__webpack_require__(/*! ./html.scss */ 57);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -4810,63 +4810,23 @@ module.exports =
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var SimpleBarChart = exports.SimpleBarChart = function (_Component) {
-	    _inherits(SimpleBarChart, _Component);
+	var HtmlBarChart = exports.HtmlBarChart = function (_Component) {
+	    _inherits(HtmlBarChart, _Component);
 	
-	    function SimpleBarChart() {
-	        _classCallCheck(this, SimpleBarChart);
+	    function HtmlBarChart() {
+	        _classCallCheck(this, HtmlBarChart);
 	
-	        return _possibleConstructorReturn(this, (SimpleBarChart.__proto__ || Object.getPrototypeOf(SimpleBarChart)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (HtmlBarChart.__proto__ || Object.getPrototypeOf(HtmlBarChart)).apply(this, arguments));
 	    }
 	
-	    _createClass(SimpleBarChart, [{
+	    _createClass(HtmlBarChart, [{
 	        key: 'render',
-	
-	
-	        // constructor () {
-	        //     super()
-	        //     this.state = {}
-	
-	        //     this.componentWillMount = this.componentWillMount.bind(this)
-	        //     this.connectFauxDOM = this.connectFauxDOM.bind(this)
-	        //     this.drawFauxDOM = this.drawFauxDOM.bind(this)
-	        // }
-	
-	        // componentDidMount = () => {
-	        //     const node = this.connectFauxDOM('div', 'chart')
-	
-	        //     this.update = (data, width) => {
-	        //         const scale = d3.scaleLinear()
-	        //                             .domain([0, d3.max(data)])
-	        //                             .range([0, width])
-	
-	        //         d3.select(node).selectAll('div')
-	        //             .data(data)
-	        //                 .enter().append('div')
-	        //                     .style('width', (d) => (scale(d) + 'px'))
-	        //                     .text(d => d)
-	        //     }
-	
-	        //     this.update(this.props.data, this.props.width)
-	        // }
-	
-	        // componentWillUpdate = (nextProps, nextState) => {
-	        //     this.update(nextProps.data, nextProps.width)
-	        //     console.log({nextProps, nextState})
-	        // }
-	
-	        // render () {
-	        //     return (<rc-simple-bar-chart>
-	        //       {this.state['chart']}
-	        //     </rc-simple-bar-chart>)
-	        // }
-	
 	        value: function render() {
 	            var _props = this.props;
 	            var data = _props.data;
 	            var width = _props.width;
 	
-	            var node = _reactFauxDom2.default.createElement('rc-simple-bar-chart');
+	            var node = _reactFauxDom2.default.createElement('rc-html-bar-chart');
 	
 	            var scale = d3.scaleLinear().domain([0, d3.max(data)]).range([0, width]);
 	
@@ -4880,15 +4840,10 @@ module.exports =
 	        }
 	    }]);
 	
-	    return SimpleBarChart;
+	    return HtmlBarChart;
 	}(_react.Component);
 	
-	// SimpleBarChart.prototype.componentWillMount = Faux.mixins.core.componentWillMount
-	// SimpleBarChart.prototype.connectFauxDOM = Faux.mixins.core.connectFauxDOM
-	// SimpleBarChart.prototype.drawFauxDOM = Faux.mixins.core.drawFauxDOM
-	
-	
-	SimpleBarChart.propTypes = {
+	HtmlBarChart.propTypes = {
 	    data: _react.PropTypes.array.isRequired,
 	    width: _react.PropTypes.number.isRequired
 	};
@@ -24201,15 +24156,15 @@ module.exports =
 
 /***/ },
 /* 57 */
-/*!****************************************************************!*\
-  !*** ./src/components/charts/simple-bar/simple-bar-chart.scss ***!
-  \****************************************************************/
+/*!*********************************************!*\
+  !*** ./src/components/charts/bar/html.scss ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple-bar-chart.scss */ 58);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./html.scss */ 58);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
@@ -24218,8 +24173,8 @@ module.exports =
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-bar-chart.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-bar-chart.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./html.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./html.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -24230,9 +24185,9 @@ module.exports =
 
 /***/ },
 /* 58 */
-/*!*******************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/simple-bar/simple-bar-chart.scss ***!
-  \*******************************************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/bar/html.scss ***!
+  \************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
@@ -24240,16 +24195,151 @@ module.exports =
 	
 	
 	// module
-	exports.push([module.id, "rc-simple-bar-chart div {\n  text-align: right;\n  padding: 3px;\n  margin: 1px; }\n", "", {"version":3,"sources":["/./src/components/charts/simple-bar/src/components/charts/simple-bar/simple-bar-chart.scss"],"names":[],"mappings":"AACA;EAEQ,kBAAkB;EAClB,aAAa;EACb,YAAY,EACf","file":"simple-bar-chart.scss","sourcesContent":["\r\nrc-simple-bar-chart {\r\n    div {\r\n        text-align: right;\r\n        padding: 3px;\r\n        margin: 1px;\r\n    }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "rc-html-bar-chart div {\n  text-align: right;\n  padding: 3px;\n  margin: 1px; }\n", "", {"version":3,"sources":["/./src/components/charts/bar/src/components/charts/bar/html.scss"],"names":[],"mappings":"AACA;EAEQ,kBAAkB;EAClB,aAAa;EACb,YAAY,EACf","file":"html.scss","sourcesContent":["\r\nrc-html-bar-chart {\r\n    div {\r\n        text-align: right;\r\n        padding: 3px;\r\n        margin: 1px;\r\n    }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
 /* 59 */
-/*!*****************************************************************!*\
-  !*** ./src/components/charts/simple-line/simple-line-chart.jsx ***!
-  \*****************************************************************/
+/*!**********************************************!*\
+  !*** ./src/components/charts/bar/simple.jsx ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.SimpleBarChart = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _reactFauxDom = __webpack_require__(/*! react-faux-dom */ 40);
+	
+	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
+	
+	var _d = __webpack_require__(/*! d3 */ 56);
+	
+	var d3 = _interopRequireWildcard(_d);
+	
+	__webpack_require__(/*! ./simple.scss */ 60);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SimpleBarChart = exports.SimpleBarChart = function (_Component) {
+	    _inherits(SimpleBarChart, _Component);
+	
+	    function SimpleBarChart() {
+	        _classCallCheck(this, SimpleBarChart);
+	
+	        return _possibleConstructorReturn(this, (SimpleBarChart.__proto__ || Object.getPrototypeOf(SimpleBarChart)).apply(this, arguments));
+	    }
+	
+	    _createClass(SimpleBarChart, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var data = _props.data;
+	            var scale = _props.scale;
+	
+	            var node = _reactFauxDom2.default.createElement('rc-simple-bar-chart');
+	
+	            var barHeight = Math.floor(scale.height / data.length);
+	
+	            var xScale = d3.scaleLinear().domain([0, d3.max(data)]).range([0, scale.width]);
+	
+	            var chart = d3.select(node).append('svg').attr('height', scale.height).attr('width', scale.width);
+	
+	            var bar = chart.selectAll('g').data(data).enter().append('g').attr('transform', function (d, i) {
+	                return 'translate(0,' + i * barHeight + ')';
+	            });
+	
+	            bar.append('rect').attr('width', xScale).attr('height', barHeight - 1);
+	
+	            bar.append('text').attr('x', function (d) {
+	                return xScale(d) - 3;
+	            }).attr('y', barHeight / 2).attr('dy', '.35em').text(function (d) {
+	                return d;
+	            });
+	
+	            return node.toReact();
+	        }
+	    }]);
+	
+	    return SimpleBarChart;
+	}(_react.Component);
+	
+	SimpleBarChart.propTypes = {
+	    data: _react.PropTypes.arrayOf(_react.PropTypes.number).isRequired,
+	    scale: _react.PropTypes.shape({
+	        height: _react.PropTypes.number.isRequired,
+	        width: _react.PropTypes.number.isRequired
+	    }).isRequired
+	};
+
+/***/ },
+/* 60 */
+/*!***********************************************!*\
+  !*** ./src/components/charts/bar/simple.scss ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 61);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 61 */
+/*!**************************************************************************************************!*\
+  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/bar/simple.scss ***!
+  \**************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "rc-simple-bar-chart text {\n  text-anchor: end; }\n", "", {"version":3,"sources":["/./src/components/charts/bar/src/components/charts/bar/simple.scss"],"names":[],"mappings":"AACA;EAKE,iBAAiB,EACjB","file":"simple.scss","sourcesContent":["\r\nrc-simple-bar-chart {\r\n\trect {\r\n\t}\r\n\r\n\ttext {\r\n\t\ttext-anchor: end;\r\n\t}\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 62 */
+/*!***********************************************!*\
+  !*** ./src/components/charts/line/simple.jsx ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24271,7 +24361,7 @@ module.exports =
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	__webpack_require__(/*! ./simple-line-chart.scss */ 60);
+	__webpack_require__(/*! ./simple.scss */ 63);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -24354,16 +24444,16 @@ module.exports =
 	};
 
 /***/ },
-/* 60 */
-/*!******************************************************************!*\
-  !*** ./src/components/charts/simple-line/simple-line-chart.scss ***!
-  \******************************************************************/
+/* 63 */
+/*!************************************************!*\
+  !*** ./src/components/charts/line/simple.scss ***!
+  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple-line-chart.scss */ 61);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 64);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
@@ -24372,8 +24462,8 @@ module.exports =
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-line-chart.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-line-chart.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -24383,10 +24473,10 @@ module.exports =
 	}
 
 /***/ },
-/* 61 */
-/*!*********************************************************************************************************************!*\
-  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/simple-line/simple-line-chart.scss ***!
-  \*********************************************************************************************************************/
+/* 64 */
+/*!***************************************************************************************************!*\
+  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/line/simple.scss ***!
+  \***************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
@@ -24394,7 +24484,7 @@ module.exports =
 	
 	
 	// module
-	exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple-line-chart.scss","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple.scss","sourceRoot":"webpack://"}]);
 	
 	// exports
 
