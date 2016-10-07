@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import ReactFauxDOM from 'react-faux-dom'
 
-export class FauxDOMComponent extends Component {
+export default class FauxDOMComponent extends Component {
     constructor () {
         super()
 
