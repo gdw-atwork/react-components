@@ -24377,6 +24377,8 @@ module.exports =
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	console.log({ d3: d3 });
+	
 	var SimpleLineChart = exports.SimpleLineChart = function (_FauxDOMComponent) {
 	    _inherits(SimpleLineChart, _FauxDOMComponent);
 	
@@ -24386,7 +24388,9 @@ module.exports =
 	        var _this = _possibleConstructorReturn(this, (SimpleLineChart.__proto__ || Object.getPrototypeOf(SimpleLineChart)).call(this));
 	
 	        _this.shouldComponentUpdate = function (nextProps, nextState) {
-	            if (_this.props.title !== nextProps.title) {
+	            if (_this.props.scale.height !== nextProps.scale.height || _this.props.scale.width !== nextProps.scale.width || _this.props.data.length !== nextProps.data.length || _this.props.data.some(function (d, i) {
+	                return d !== nextProps.data[i];
+	            })) {
 	                var _ret = function () {
 	                    var self = _this;
 	
@@ -24394,7 +24398,7 @@ module.exports =
 	                        _this.stopAnimatingFauxDOM();
 	                    }
 	
-	                    _this.update(nextProps.title);
+	                    _this.update(nextProps);
 	
 	                    setTimeout(function () {
 	                        return self.animateFauxDOM(500);
@@ -24410,13 +24414,39 @@ module.exports =
 	        };
 	
 	        _this.componentDidMount = function () {
-	            var node = _this.connectFauxDOM('div', 'chart');
+	            var node = _this.connectFauxDOM('svg', 'chart');
 	
-	            _this.update = function (title) {
-	                d3.select(node).html(title);
+	            _this.update = function (props) {
+	                var data = props.data;
+	                var scale = props.scale;
+	
+	                var m = [20, 20, 20, 20];
+	                var w = scale.width - m[1] - m[3];
+	                var h = scale.height - m[0] - m[2];
+	
+	                var xScale = d3.scaleLinear().domain([0, data.length - 1]).range([0, w]);
+	
+	                var yScale = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).range([h, 0]);
+	
+	                var line = d3.line().x(function (d, i) {
+	                    return xScale(i);
+	                }).y(function (d) {
+	                    return yScale(d);
+	                });
+	
+	                d3.select(node).selectAll('g').remove();
+	                var graph = d3.select(node).attr('width', w + m[1] + m[3]).attr('height', h + m[0] + m[2]).append('g').attr('transform', 'translate(' + m[3] + ',' + m[0] + ')');
+	
+	                var xAxis = d3.axisBottom().scale(xScale).tickSize(-h); // .tickSubdivide(true)
+	                graph.append('g').attr('class', 'x axis').attr('transform', 'translate(0,' + h + ')').call(xAxis);
+	
+	                var yAxisLeft = d3.axisLeft().scale(yScale).ticks(4);
+	                graph.append('g').attr('class', 'y axis').attr('transform', 'translate(-25,0)').call(yAxisLeft);
+	
+	                graph.append('path').attr('d', line(data));
 	            };
 	
-	            _this.update(_this.props.title);
+	            _this.update(_this.props);
 	
 	            _this.animateFauxDOM(500);
 	        };
@@ -24440,7 +24470,11 @@ module.exports =
 	}(_FauxDOMComponent3.default);
 	
 	SimpleLineChart.propTypes = {
-	    title: _react.PropTypes.string.isRequired
+	    data: _react.PropTypes.arrayOf(_react.PropTypes.number).isRequired,
+	    scale: _react.PropTypes.shape({
+	        height: _react.PropTypes.number.isRequired,
+	        width: _react.PropTypes.number.isRequired
+	    }).isRequired
 	};
 
 /***/ },
@@ -24545,7 +24579,7 @@ module.exports =
 	
 	
 	// module
-	exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple.scss","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "rc-simple-line-chart path {\n  stroke: steelblue;\n  stroke-width: 1;\n  fill: none; }\n\nrc-simple-line-chart .axis {\n  shape-rendering: crispEdges; }\n\nrc-simple-line-chart .x.axis line {\n  stroke: lightgrey; }\n\nrc-simple-line-chart .x.axis .minor {\n  stroke-opacity: .5; }\n\nrc-simple-line-chart .x.axis path {\n  display: none; }\n\nrc-simple-line-chart .y.axis line, rc-simple-line-chart .y.axis path {\n  fill: none;\n  stroke: #000; }\n", "", {"version":3,"sources":["/./src/components/charts/line/src/components/charts/line/simple.scss"],"names":[],"mappings":"AACA;EAEE,kBAAkB;EAClB,gBAAgB;EAChB,WAAW,EACX;;AALF;EAQG,4BAA4B,EAC7B;;AATF;EAYG,kBAAkB,EACnB;;AAbF;EAgBG,mBAAmB,EACpB;;AAjBF;EAoBG,cAAc,EACf;;AArBF;EAwBG,WAAW;EACX,aAAa,EACd","file":"simple.scss","sourcesContent":["\r\nrc-simple-line-chart {\r\n\tpath {\r\n\t\tstroke: steelblue;\r\n\t\tstroke-width: 1;\r\n\t\tfill: none;\r\n\t}\r\n\t\r\n\t.axis {\r\n\t  shape-rendering: crispEdges;\r\n\t}\r\n\r\n\t.x.axis line {\r\n\t  stroke: lightgrey;\r\n\t}\r\n\r\n\t.x.axis .minor {\r\n\t  stroke-opacity: .5;\r\n\t}\r\n\r\n\t.x.axis path {\r\n\t  display: none;\r\n\t}\r\n\r\n\t.y.axis line, .y.axis path {\r\n\t  fill: none;\r\n\t  stroke: #000;\r\n\t}\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 

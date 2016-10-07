@@ -46862,6 +46862,8 @@
 		
 		function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 		
+		console.log({ d3: d3 });
+		
 		var SimpleLineChart = exports.SimpleLineChart = function (_FauxDOMComponent) {
 		    _inherits(SimpleLineChart, _FauxDOMComponent);
 		
@@ -46871,7 +46873,9 @@
 		        var _this = _possibleConstructorReturn(this, (SimpleLineChart.__proto__ || Object.getPrototypeOf(SimpleLineChart)).call(this));
 		
 		        _this.shouldComponentUpdate = function (nextProps, nextState) {
-		            if (_this.props.title !== nextProps.title) {
+		            if (_this.props.scale.height !== nextProps.scale.height || _this.props.scale.width !== nextProps.scale.width || _this.props.data.length !== nextProps.data.length || _this.props.data.some(function (d, i) {
+		                return d !== nextProps.data[i];
+		            })) {
 		                var _ret = function () {
 		                    var self = _this;
 		
@@ -46879,7 +46883,7 @@
 		                        _this.stopAnimatingFauxDOM();
 		                    }
 		
-		                    _this.update(nextProps.title);
+		                    _this.update(nextProps);
 		
 		                    setTimeout(function () {
 		                        return self.animateFauxDOM(500);
@@ -46895,13 +46899,39 @@
 		        };
 		
 		        _this.componentDidMount = function () {
-		            var node = _this.connectFauxDOM('div', 'chart');
+		            var node = _this.connectFauxDOM('svg', 'chart');
 		
-		            _this.update = function (title) {
-		                d3.select(node).html(title);
+		            _this.update = function (props) {
+		                var data = props.data;
+		                var scale = props.scale;
+		
+		                var m = [20, 20, 20, 20];
+		                var w = scale.width - m[1] - m[3];
+		                var h = scale.height - m[0] - m[2];
+		
+		                var xScale = d3.scaleLinear().domain([0, data.length - 1]).range([0, w]);
+		
+		                var yScale = d3.scaleLinear().domain([d3.min(data), d3.max(data)]).range([h, 0]);
+		
+		                var line = d3.line().x(function (d, i) {
+		                    return xScale(i);
+		                }).y(function (d) {
+		                    return yScale(d);
+		                });
+		
+		                d3.select(node).selectAll('g').remove();
+		                var graph = d3.select(node).attr('width', w + m[1] + m[3]).attr('height', h + m[0] + m[2]).append('g').attr('transform', 'translate(' + m[3] + ',' + m[0] + ')');
+		
+		                var xAxis = d3.axisBottom().scale(xScale).tickSize(-h); // .tickSubdivide(true)
+		                graph.append('g').attr('class', 'x axis').attr('transform', 'translate(0,' + h + ')').call(xAxis);
+		
+		                var yAxisLeft = d3.axisLeft().scale(yScale).ticks(4);
+		                graph.append('g').attr('class', 'y axis').attr('transform', 'translate(-25,0)').call(yAxisLeft);
+		
+		                graph.append('path').attr('d', line(data));
 		            };
 		
-		            _this.update(_this.props.title);
+		            _this.update(_this.props);
 		
 		            _this.animateFauxDOM(500);
 		        };
@@ -46925,7 +46955,11 @@
 		}(_FauxDOMComponent3.default);
 		
 		SimpleLineChart.propTypes = {
-		    title: _react.PropTypes.string.isRequired
+		    data: _react.PropTypes.arrayOf(_react.PropTypes.number).isRequired,
+		    scale: _react.PropTypes.shape({
+		        height: _react.PropTypes.number.isRequired,
+		        width: _react.PropTypes.number.isRequired
+		    }).isRequired
 		};
 	
 	/***/ },
@@ -47030,7 +47064,7 @@
 		
 		
 		// module
-		exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple.scss","sourceRoot":"webpack://"}]);
+		exports.push([module.id, "rc-simple-line-chart path {\n  stroke: steelblue;\n  stroke-width: 1;\n  fill: none; }\n\nrc-simple-line-chart .axis {\n  shape-rendering: crispEdges; }\n\nrc-simple-line-chart .x.axis line {\n  stroke: lightgrey; }\n\nrc-simple-line-chart .x.axis .minor {\n  stroke-opacity: .5; }\n\nrc-simple-line-chart .x.axis path {\n  display: none; }\n\nrc-simple-line-chart .y.axis line, rc-simple-line-chart .y.axis path {\n  fill: none;\n  stroke: #000; }\n", "", {"version":3,"sources":["/./src/components/charts/line/src/components/charts/line/simple.scss"],"names":[],"mappings":"AACA;EAEE,kBAAkB;EAClB,gBAAgB;EAChB,WAAW,EACX;;AALF;EAQG,4BAA4B,EAC7B;;AATF;EAYG,kBAAkB,EACnB;;AAbF;EAgBG,mBAAmB,EACpB;;AAjBF;EAoBG,cAAc,EACf;;AArBF;EAwBG,WAAW;EACX,aAAa,EACd","file":"simple.scss","sourcesContent":["\r\nrc-simple-line-chart {\r\n\tpath {\r\n\t\tstroke: steelblue;\r\n\t\tstroke-width: 1;\r\n\t\tfill: none;\r\n\t}\r\n\t\r\n\t.axis {\r\n\t  shape-rendering: crispEdges;\r\n\t}\r\n\r\n\t.x.axis line {\r\n\t  stroke: lightgrey;\r\n\t}\r\n\r\n\t.x.axis .minor {\r\n\t  stroke-opacity: .5;\r\n\t}\r\n\r\n\t.x.axis path {\r\n\t  display: none;\r\n\t}\r\n\r\n\t.y.axis line, .y.axis path {\r\n\t  fill: none;\r\n\t  stroke: #000;\r\n\t}\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 		
 		// exports
 	
@@ -47348,7 +47382,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.SimpleLineChartDemo = undefined;
 	
@@ -47371,81 +47405,131 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var SimpleLineChartDemo = exports.SimpleLineChartDemo = function (_Component) {
-	  _inherits(SimpleLineChartDemo, _Component);
+	    _inherits(SimpleLineChartDemo, _Component);
 	
-	  function SimpleLineChartDemo() {
-	    _classCallCheck(this, SimpleLineChartDemo);
+	    function SimpleLineChartDemo() {
+	        _classCallCheck(this, SimpleLineChartDemo);
 	
-	    var _this = _possibleConstructorReturn(this, (SimpleLineChartDemo.__proto__ || Object.getPrototypeOf(SimpleLineChartDemo)).call(this));
+	        var _this = _possibleConstructorReturn(this, (SimpleLineChartDemo.__proto__ || Object.getPrototypeOf(SimpleLineChartDemo)).call(this));
 	
-	    _this.handleTitle = function (event) {
-	      _this.setState({ title: event.target.value });
-	    };
+	        _this.handleData = function (event) {
+	            var dataEntry = event.target.value;
+	            try {
+	                var data = JSON.parse(dataEntry);
+	                _this.setState({ data: data, dataEntry: dataEntry, dataClass: '' });
+	            } catch (err) {
+	                _this.setState({ dataEntry: dataEntry, dataClass: 'error' });
+	            }
+	        };
 	
-	    _this.state = {
-	      title: 'Simple Line Chart in Progress'
-	    };
-	    return _this;
-	  }
+	        _this.handleHeight = function (event) {
+	            var height = parseInt(event.target.value, 10);
+	            if (height && height > 2 * _this.state.data.length) {
+	                _this.setState({ height: height });
+	            }
+	        };
 	
-	  _createClass(SimpleLineChartDemo, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'section',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'title' },
-	          _react2.default.createElement(
-	            'h4',
-	            null,
-	            'Simple Line Chart'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'display' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'usage' },
-	            _react2.default.createElement(
-	              'code',
-	              null,
-	              '<SimpleLineChart title={title} />'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'demo' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'properties' },
-	              _react2.default.createElement(
-	                'div',
+	        _this.handleWidth = function (event) {
+	            var width = parseInt(event.target.value, 10);
+	            if (width && width > 0) {
+	                _this.setState({ width: width });
+	            }
+	        };
+	
+	        _this.state = {
+	            data: [1, 1, 2, 3, 5, 8, 13, 21, 34],
+	            dataEntry: '[1, 1, 2, 3, 5, 8, 13, 21, 34]',
+	            dataClass: '',
+	            height: 180,
+	            width: 510
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(SimpleLineChartDemo, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'section',
 	                null,
 	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  'title:'
+	                    'div',
+	                    { className: 'title' },
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'Simple Line Chart'
+	                    )
 	                ),
-	                _react2.default.createElement('input', { type: 'text',
-	                  value: this.state.title,
-	                  onChange: this.handleTitle })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'component' },
-	              _react2.default.createElement(_reactComponents2.default.SimpleLineChart, { title: this.state.title })
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'display' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'usage' },
+	                        _react2.default.createElement(
+	                            'code',
+	                            null,
+	                            '<SimpleLineChart data={data} scale={{height, width}} />'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'demo' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'properties' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'data:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    value: this.state.dataEntry,
+	                                    onChange: this.handleData,
+	                                    className: this.state.dataClass })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'height:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'number',
+	                                    value: this.state.height,
+	                                    onChange: this.handleHeight })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'width:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'number',
+	                                    value: this.state.width,
+	                                    onChange: this.handleWidth })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'component' },
+	                            _react2.default.createElement(_reactComponents2.default.SimpleLineChart, { data: this.state.data,
+	                                scale: { height: this.state.height, width: this.state.width } })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
 
-	  return SimpleLineChartDemo;
+	    return SimpleLineChartDemo;
 	}(_react.Component);
 
 /***/ }
