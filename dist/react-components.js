@@ -24349,19 +24349,23 @@ module.exports =
 	});
 	exports.SimpleLineChart = undefined;
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 2);
 	
-	var _reactFauxDom = __webpack_require__(/*! react-faux-dom */ 40);
+	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
+	var _FauxDOMComponent2 = __webpack_require__(/*! ../FauxDOMComponent */ 63);
+	
+	var _FauxDOMComponent3 = _interopRequireDefault(_FauxDOMComponent2);
 	
 	var _d = __webpack_require__(/*! d3 */ 56);
 	
 	var d3 = _interopRequireWildcard(_d);
 	
-	__webpack_require__(/*! ./simple.scss */ 63);
+	__webpack_require__(/*! ./simple.scss */ 64);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -24373,78 +24377,135 @@ module.exports =
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var SimpleLineChart = exports.SimpleLineChart = function (_Component) {
-	    _inherits(SimpleLineChart, _Component);
+	var SimpleLineChart = exports.SimpleLineChart = function (_FauxDOMComponent) {
+	    _inherits(SimpleLineChart, _FauxDOMComponent);
 	
 	    function SimpleLineChart() {
 	        _classCallCheck(this, SimpleLineChart);
 	
-	        return _possibleConstructorReturn(this, (SimpleLineChart.__proto__ || Object.getPrototypeOf(SimpleLineChart)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (SimpleLineChart.__proto__ || Object.getPrototypeOf(SimpleLineChart)).call(this));
+	
+	        _this.shouldComponentUpdate = function (nextProps, nextState) {
+	            if (_this.props.title !== nextProps.title) {
+	                var _ret = function () {
+	                    var self = _this;
+	
+	                    if (_this.isAnimatingFauxDOM()) {
+	                        _this.stopAnimatingFauxDOM();
+	                    }
+	
+	                    _this.update(nextProps.title);
+	
+	                    setTimeout(function () {
+	                        return self.animateFauxDOM(500);
+	                    });
+	                    return {
+	                        v: false
+	                    };
+	                }();
+	
+	                if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	            }
+	            return true;
+	        };
+	
+	        _this.componentDidMount = function () {
+	            var node = _this.connectFauxDOM('div', 'chart');
+	
+	            _this.update = function (title) {
+	                d3.select(node).html(title);
+	            };
+	
+	            _this.update(_this.props.title);
+	
+	            _this.animateFauxDOM(500);
+	        };
+	
+	        _this.state = {};
+	        return _this;
 	    }
 	
 	    _createClass(SimpleLineChart, [{
 	        key: 'render',
 	        value: function render() {
-	            var node = _reactFauxDom2.default.createElement('rc-simple-line-chart');
-	
-	            d3.select(node).append('div').html('Simple Line');
-	
-	            return node.toReact();
+	            return _react2.default.createElement(
+	                'rc-simple-line-chart',
+	                null,
+	                this.state['chart']
+	            );
 	        }
 	    }]);
 	
 	    return SimpleLineChart;
-	}(_react.Component);
-	
-	// constructor () {
-	//     super()
-	//     this.state = {}
-	
-	//     this.componentWillMount = this.componentWillMount.bind(this)
-	//     this.connectFauxDOM = this.connectFauxDOM.bind(this)
-	//     this.drawFauxDOM = this.drawFauxDOM.bind(this)
-	// }
-	
-	// componentDidMount = () => {
-	//     const node = this.connectFauxDOM('div', 'chart')
-	
-	//     this.update = (data, width) => {
-	//         const scale = d3.scaleLinear()
-	//                             .domain([0, d3.max(data)])
-	//                             .range([0, width])
-	
-	//         d3.select(node).selectAll('div')
-	//             .data(data)
-	//                 .enter().append('div')
-	//                     .style('width', (d) => (scale(d) + 'px'))
-	//                     .text(d => d)
-	//     }
-	
-	//     this.update(this.props.data, this.props.width)
-	// }
-	
-	// componentWillUpdate = (nextProps, nextState) => {
-	//     this.update(nextProps.data, nextProps.width)
-	//     console.log({nextProps, nextState})
-	// }
-	
-	// render () {
-	//     return (<rc-simple-bar-chart>
-	//       {this.state['chart']}
-	//     </rc-simple-bar-chart>)
-	// }
-	
-	// SimpleBarChart.prototype.componentWillMount = Faux.mixins.core.componentWillMount
-	// SimpleBarChart.prototype.connectFauxDOM = Faux.mixins.core.connectFauxDOM
-	// SimpleBarChart.prototype.drawFauxDOM = Faux.mixins.core.drawFauxDOM
-	
+	}(_FauxDOMComponent3.default);
 	
 	SimpleLineChart.propTypes = {
-	    data: _react.PropTypes.object.isRequired
+	    title: _react.PropTypes.string.isRequired
 	};
 
 /***/ },
 /* 63 */
+/*!****************************************************!*\
+  !*** ./src/components/charts/FauxDOMComponent.jsx ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _reactFauxDom = __webpack_require__(/*! react-faux-dom */ 40);
+	
+	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FauxDOMComponent = function (_Component) {
+	    _inherits(FauxDOMComponent, _Component);
+	
+	    function FauxDOMComponent() {
+	        _classCallCheck(this, FauxDOMComponent);
+	
+	        var _this = _possibleConstructorReturn(this, (FauxDOMComponent.__proto__ || Object.getPrototypeOf(FauxDOMComponent)).call(this));
+	
+	        _this.componentWillMount = _this.componentWillMount.bind(_this);
+	        _this.connectFauxDOM = _this.connectFauxDOM.bind(_this);
+	        _this.drawFauxDOM = _this.drawFauxDOM.bind(_this);
+	
+	        _this.animateFauxDOM = _this.animateFauxDOM.bind(_this);
+	        _this.stopAnimatingFauxDOM = _this.stopAnimatingFauxDOM.bind(_this);
+	        _this.isAnimatingFauxDOM = _this.isAnimatingFauxDOM.bind(_this);
+	        _this.componentWillUnmount = _this.componentWillUnmount.bind(_this);
+	        return _this;
+	    }
+	
+	    return FauxDOMComponent;
+	}(_react.Component);
+	
+	exports.default = FauxDOMComponent;
+	
+	
+	FauxDOMComponent.prototype.componentWillMount = _reactFauxDom2.default.mixins.core.componentWillMount;
+	FauxDOMComponent.prototype.connectFauxDOM = _reactFauxDom2.default.mixins.core.connectFauxDOM;
+	FauxDOMComponent.prototype.drawFauxDOM = _reactFauxDom2.default.mixins.core.drawFauxDOM;
+	
+	FauxDOMComponent.prototype.animateFauxDOM = _reactFauxDom2.default.mixins.anim.animateFauxDOM;
+	FauxDOMComponent.prototype.stopAnimatingFauxDOM = _reactFauxDom2.default.mixins.anim.stopAnimatingFauxDOM;
+	FauxDOMComponent.prototype.isAnimatingFauxDOM = _reactFauxDom2.default.mixins.anim.isAnimatingFauxDOM;
+	FauxDOMComponent.prototype.componentWillUnmount = _reactFauxDom2.default.mixins.anim.componentWillUnmount;
+
+/***/ },
+/* 64 */
 /*!************************************************!*\
   !*** ./src/components/charts/line/simple.scss ***!
   \************************************************/
@@ -24453,7 +24514,7 @@ module.exports =
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 64);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 65);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
@@ -24473,7 +24534,7 @@ module.exports =
 	}
 
 /***/ },
-/* 64 */
+/* 65 */
 /*!***************************************************************************************************!*\
   !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/line/simple.scss ***!
   \***************************************************************************************************/

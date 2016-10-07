@@ -13,6 +13,7 @@ window.console && console.log && console.log('>>>>>> react-components <<<<<<<<<'
 
 import {HtmlBarChartDemo} from './charts/html-bar-chart.jsx'
 import {SimpleBarChartDemo} from './charts/simple-bar-chart.jsx'
+import {SimpleLineChartDemo} from './charts/simple-line-chart.jsx'
 
 class Demo extends Component {
     constructor () {
@@ -43,6 +44,7 @@ class Demo extends Component {
           </main>
           <HtmlBarChartDemo />
           <SimpleBarChartDemo />
+          <SimpleLineChartDemo />
         </div>)
     }
 }
