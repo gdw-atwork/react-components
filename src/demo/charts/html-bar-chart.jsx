@@ -2,15 +2,14 @@ import React, {Component} from 'react'
 
 import rc from '../../../dist/react-components'
 
-export class SimpleBarChartDemo extends Component {
+export class HtmlBarChartDemo extends Component {
     constructor () {
         super()
         this.state = {
-            data: [1, 1, 2, 3, 5, 8, 13, 21, 34],
-            dataEntry: '[1, 1, 2, 3, 5, 8, 13, 21, 34]',
+            data: [1, 1, 2, 3, 5, 8, 13],
+            dataEntry: '[1, 1, 2, 3, 5, 8, 13]',
             dataClass: '',
-            height: 180,
-            width: 510
+            width: 390
         }
     }
 
@@ -24,12 +23,6 @@ export class SimpleBarChartDemo extends Component {
         }
     }
 
-    handleHeight = (event) => {
-        let height = parseInt(event.target.value, 10)
-        if (height && height > (2 * this.state.data.length)) {
-            this.setState({height})
-        }
-    }
     handleWidth = (event) => {
         let width = parseInt(event.target.value, 10)
         if (width && width > 0) {
@@ -40,11 +33,11 @@ export class SimpleBarChartDemo extends Component {
     render () {
         return (<section>
           <div className='title'>
-            <h4>Simple SVG Bar Chart</h4>
+            <h4>HTML Bar Chart</h4>
           </div>
           <div className='display'>
             <div className='usage'>
-              <code>{'<SimpleBarChart data={data} scale={{height, width}} />'}</code>
+              <code>{'<HtmlBarChart data={data} width={width} />'}</code>
             </div>
             <div className='demo'>
               <div className='properties'>
@@ -56,12 +49,6 @@ export class SimpleBarChartDemo extends Component {
                     className={this.state.dataClass} />
                 </div>
                 <div>
-                  <label>height:</label>
-                  <input type='number'
-                    value={this.state.height}
-                    onChange={this.handleHeight} />
-                </div>
-                <div>
                   <label>width:</label>
                   <input type='number'
                     value={this.state.width}
@@ -69,8 +56,7 @@ export class SimpleBarChartDemo extends Component {
                 </div>
               </div>
               <div className='component'>
-                <rc.SimpleBarChart data={this.state.data}
-                  scale={{height: this.state.height, width: this.state.width}} />
+                <rc.HtmlBarChart data={this.state.data} width={this.state.width} />
               </div>
             </div>
           </div>

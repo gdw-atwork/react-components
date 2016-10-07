@@ -1,9 +1,11 @@
 @import '_config';
 
 @import '../components/button/button.mixins';
-@import '../components/charts/simple-bar/simple-bar-chart.mixins';
+@import '../components/charts/bar/html.mixins';
+@import '../components/charts/bar/simple.mixins';
 
 .default {
 	@include rc-button()
+	@include rc-html-bar-chart()
 	@include rc-simple-bar-chart()
 }

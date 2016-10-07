@@ -67,7 +67,9 @@
 	
 	var _reactComponents2 = _interopRequireDefault(_reactComponents);
 	
-	var _simpleBarChart = __webpack_require__(/*! ./charts/simple-bar-chart.jsx */ 181);
+	var _htmlBarChart = __webpack_require__(/*! ./charts/html-bar-chart.jsx */ 181);
+	
+	var _simpleBarChart = __webpack_require__(/*! ./charts/simple-bar-chart.jsx */ 182);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -128,6 +130,7 @@
 	                        )
 	                    )
 	                ),
+	                _react2.default.createElement(_htmlBarChart.HtmlBarChartDemo, null),
 	                _react2.default.createElement(_simpleBarChart.SimpleBarChartDemo, null)
 	            );
 	        }
@@ -22419,7 +22422,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".default rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #ffffff;\n  background-color: #000000; }\n\n.default rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.default rc-simple-bar-chart div {\n  font: 10px sans-serif;\n  background-color: steelblue;\n  color: white; }\n\n.vanilla {\n  background: #fdfaee; }\n\n.vanilla rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #f3e5ab;\n  background-color: #6881e9; }\n\n.vanilla rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.vanilla rc-simple-bar-chart div {\n  font: 10px sans-serif;\n  background-color: #6881e9;\n  color: #f3e5ab; }\n\n.mint {\n  background: #f5fffa; }\n\n.mint rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #98ff98;\n  background-color: #ff98ff; }\n\n.mint rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.mint rc-simple-bar-chart div {\n  font: 10px sans-serif;\n  background-color: #ff98ff;\n  color: #98ff98; }\n\n/*# sourceMappingURL=react-components.css.map*/\n", "", {"version":3,"sources":["/./dist/dist/react-components.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AAEpB;EACE,sBAAsB;EACtB,4BAA4B;EAC5B,aAAa,EAAG;;AAElB;EACE,oBAAoB,EAAG;;AACvB;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AACpB;EACE,sBAAsB;EACtB,0BAA0B;EAC1B,eAAe,EAAG;;AAEtB;EACE,oBAAoB,EAAG;;AACvB;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AACpB;EACE,sBAAsB;EACtB,0BAA0B;EAC1B,eAAe,EAAG;;AAEtB,+CAA+C","file":"react-components.css","sourcesContent":[".default rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #ffffff;\n  background-color: #000000; }\n  .default rc-button[disabled='disabled'] {\n    opacity: 0.4; }\n\n.default rc-simple-bar-chart div {\n  font: 10px sans-serif;\n  background-color: steelblue;\n  color: white; }\n\n.vanilla {\n  background: #fdfaee; }\n  .vanilla rc-button {\n    display: inline-block;\n    overflow: hidden;\n    outline: none;\n    border: 0;\n    margin: 0;\n    padding: 4px 8px;\n    border-radius: 3px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    text-align: center;\n    vertical-align: middle;\n    text-transform: uppercase;\n    color: #f3e5ab;\n    background-color: #6881e9; }\n    .vanilla rc-button[disabled='disabled'] {\n      opacity: 0.4; }\n  .vanilla rc-simple-bar-chart div {\n    font: 10px sans-serif;\n    background-color: #6881e9;\n    color: #f3e5ab; }\n\n.mint {\n  background: #f5fffa; }\n  .mint rc-button {\n    display: inline-block;\n    overflow: hidden;\n    outline: none;\n    border: 0;\n    margin: 0;\n    padding: 4px 8px;\n    border-radius: 3px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    text-align: center;\n    vertical-align: middle;\n    text-transform: uppercase;\n    color: #98ff98;\n    background-color: #ff98ff; }\n    .mint rc-button[disabled='disabled'] {\n      opacity: 0.4; }\n  .mint rc-simple-bar-chart div {\n    font: 10px sans-serif;\n    background-color: #ff98ff;\n    color: #98ff98; }\n\n/*# sourceMappingURL=react-components.css.map*/"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".default rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #ffffff;\n  background-color: #000000; }\n\n.default rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.default rc-html-bar-chart div {\n  font: 10px sans-serif;\n  background-color: steelblue;\n  color: white; }\n\n.default rc-simple-bar-chart rect {\n  fill: steelblue; }\n\n.default rc-simple-bar-chart text {\n  fill: white;\n  font: 10px sans-serif; }\n\n.vanilla {\n  background: #fdfaee; }\n\n.vanilla rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #f3e5ab;\n  background-color: #6881e9; }\n\n.vanilla rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.vanilla rc-html-bar-chart div {\n  font: 10px sans-serif;\n  background-color: #6881e9;\n  color: #f3e5ab; }\n\n.vanilla rc-simple-bar-chart rect {\n  fill: #6881e9; }\n\n.vanilla rc-simple-bar-chart text {\n  fill: #f3e5ab;\n  font: 10px sans-serif; }\n\n.mint {\n  background: #f5fffa; }\n\n.mint rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #98ff98;\n  background-color: #ff98ff; }\n\n.mint rc-button[disabled='disabled'] {\n  opacity: 0.4; }\n\n.mint rc-html-bar-chart div {\n  font: 10px sans-serif;\n  background-color: #ff98ff;\n  color: #98ff98; }\n\n.mint rc-simple-bar-chart rect {\n  fill: #ff98ff; }\n\n.mint rc-simple-bar-chart text {\n  fill: #98ff98;\n  font: 10px sans-serif; }\n\n/*# sourceMappingURL=react-components.css.map*/\n", "", {"version":3,"sources":["/./dist/dist/react-components.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AAEpB;EACE,sBAAsB;EACtB,4BAA4B;EAC5B,aAAa,EAAG;;AAElB;EACE,gBAAgB,EAAG;;AAErB;EACE,YAAY;EACZ,sBAAsB,EAAG;;AAE3B;EACE,oBAAoB,EAAG;;AACvB;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AACpB;EACE,sBAAsB;EACtB,0BAA0B;EAC1B,eAAe,EAAG;;AACpB;EACE,cAAc,EAAG;;AACnB;EACE,cAAc;EACd,sBAAsB,EAAG;;AAE7B;EACE,oBAAoB,EAAG;;AACvB;EACE,sBAAsB;EACtB,iBAAiB;EACjB,cAAc;EACd,UAAU;EACV,UAAU;EACV,iBAAiB;EACjB,mBAAmB;EACnB,wBAAwB;EACxB,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;EACf,0BAA0B,EAAG;;AAC7B;EACE,aAAa,EAAG;;AACpB;EACE,sBAAsB;EACtB,0BAA0B;EAC1B,eAAe,EAAG;;AACpB;EACE,cAAc,EAAG;;AACnB;EACE,cAAc;EACd,sBAAsB,EAAG;;AAE7B,+CAA+C","file":"react-components.css","sourcesContent":[".default rc-button {\n  display: inline-block;\n  overflow: hidden;\n  outline: none;\n  border: 0;\n  margin: 0;\n  padding: 4px 8px;\n  border-radius: 3px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: center;\n  vertical-align: middle;\n  text-transform: uppercase;\n  color: #ffffff;\n  background-color: #000000; }\n  .default rc-button[disabled='disabled'] {\n    opacity: 0.4; }\n\n.default rc-html-bar-chart div {\n  font: 10px sans-serif;\n  background-color: steelblue;\n  color: white; }\n\n.default rc-simple-bar-chart rect {\n  fill: steelblue; }\n\n.default rc-simple-bar-chart text {\n  fill: white;\n  font: 10px sans-serif; }\n\n.vanilla {\n  background: #fdfaee; }\n  .vanilla rc-button {\n    display: inline-block;\n    overflow: hidden;\n    outline: none;\n    border: 0;\n    margin: 0;\n    padding: 4px 8px;\n    border-radius: 3px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    text-align: center;\n    vertical-align: middle;\n    text-transform: uppercase;\n    color: #f3e5ab;\n    background-color: #6881e9; }\n    .vanilla rc-button[disabled='disabled'] {\n      opacity: 0.4; }\n  .vanilla rc-html-bar-chart div {\n    font: 10px sans-serif;\n    background-color: #6881e9;\n    color: #f3e5ab; }\n  .vanilla rc-simple-bar-chart rect {\n    fill: #6881e9; }\n  .vanilla rc-simple-bar-chart text {\n    fill: #f3e5ab;\n    font: 10px sans-serif; }\n\n.mint {\n  background: #f5fffa; }\n  .mint rc-button {\n    display: inline-block;\n    overflow: hidden;\n    outline: none;\n    border: 0;\n    margin: 0;\n    padding: 4px 8px;\n    border-radius: 3px;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    text-align: center;\n    vertical-align: middle;\n    text-transform: uppercase;\n    color: #98ff98;\n    background-color: #ff98ff; }\n    .mint rc-button[disabled='disabled'] {\n      opacity: 0.4; }\n  .mint rc-html-bar-chart div {\n    font: 10px sans-serif;\n    background-color: #ff98ff;\n    color: #98ff98; }\n  .mint rc-simple-bar-chart rect {\n    fill: #ff98ff; }\n  .mint rc-simple-bar-chart text {\n    fill: #98ff98;\n    font: 10px sans-serif; }\n\n/*# sourceMappingURL=react-components.css.map*/"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -22465,7 +22468,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".demo-header {\n  padding: 20px; }\n  .demo-header h1 {\n    text-transform: uppercase; }\n\n#DemoContainer {\n  padding: 0 20px; }\n  #DemoContainer section {\n    padding: 20px 0; }\n\ninput.error {\n  color: red; }\n", "", {"version":3,"sources":["/./src/demo/src/demo/demo.scss"],"names":[],"mappings":"AAEA;EACC,cAAc,EAKd;EAND;IAIE,0BAA0B,EAC1B;;AAGF;EACC,gBAAgB,EAKhB;EAND;IAIE,gBAAgB,EAChB;;AAGF;EACC,WAAW,EACX","file":"demo.scss","sourcesContent":["@import '../style/_config';\r\n\r\n.demo-header {\r\n\tpadding: 20px;\r\n\r\n\th1 {\r\n\t\ttext-transform: uppercase;\r\n\t}\r\n}\r\n\r\n#DemoContainer {\r\n\tpadding: 0 20px;\r\n\r\n\tsection {\r\n\t\tpadding: 20px 0;\r\n\t}\r\n}\r\n\r\ninput.error {\r\n\tcolor: red;\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, ".demo-header {\n  padding: 20px; }\n  .demo-header h1 {\n    text-transform: uppercase; }\n\n#DemoContainer {\n  padding: 0 20px; }\n  #DemoContainer section {\n    margin: 10px 0;\n    display: flex;\n    border-top: 2px solid black; }\n    #DemoContainer section .title {\n      order: 0;\n      flex-basis: auto;\n      flex-grow: 0;\n      flex-shrink: 0;\n      width: 160px; }\n    #DemoContainer section .display {\n      order: 1;\n      flex-grow: 1;\n      flex-shrink: 0;\n      flex-wrap: wrap; }\n      #DemoContainer section .display .usage {\n        display: inline-block;\n        padding: 10px 0;\n        width: 100%; }\n      #DemoContainer section .display .demo {\n        display: flex; }\n        #DemoContainer section .display .demo .properties {\n          order: 0;\n          flex-grow: 0;\n          flex-shrink: 0; }\n          #DemoContainer section .display .demo .properties div {\n            display: flex;\n            margin-bottom: 5px; }\n            #DemoContainer section .display .demo .properties div label {\n              order: 0;\n              flex-grow: 0;\n              flex-shrink: 0;\n              width: 25%; }\n            #DemoContainer section .display .demo .properties div input {\n              order: 1;\n              flex-grow: 1;\n              flex-shrink: 1; }\n        #DemoContainer section .display .demo .component {\n          order: 1;\n          flex-grow: 1;\n          flex-shrink: 1;\n          padding-left: 40px; }\n\ninput.error {\n  color: red; }\n", "", {"version":3,"sources":["/./src/demo/src/demo/demo.scss"],"names":[],"mappings":"AAEA;EACC,cAAc,EAKd;EAND;IAIE,0BAA0B,EAC1B;;AAGF;EACC,gBAAgB,EA8DhB;EA/DD;IAIE,eAAe;IACf,cAAc;IACd,4BAA4B,EAwD5B;IA9DF;MASG,SAAS;MACT,iBAAiB;MACjB,aAAa;MACb,eAAe;MACf,aAAa,EACb;IAdH;MAiBG,SAAS;MACT,aAAa;MACb,eAAe;MACf,gBAAgB,EAyChB;MA7DH;QAuBI,sBAAsB;QACtB,gBAAgB;QAChB,YAAY,EACZ;MA1BJ;QA6BI,cAAc,EA+Bd;QA5DJ;UAgCK,SAAS;UACT,aAAa;UACb,eAAe,EAkBf;UApDL;YAqCM,cAAc;YACd,mBAAmB,EAanB;YAnDN;cAyCO,SAAS;cACT,aAAa;cACb,eAAe;cACf,WAAW,EACX;YA7CP;cA+CO,SAAS;cACT,aAAa;cACb,eAAe,EACf;QAlDP;UAuDK,SAAS;UACT,aAAa;UACb,eAAe;UACf,mBAAmB,EACnB;;AAML;EACC,WAAW,EACX","file":"demo.scss","sourcesContent":["@import '../style/_config';\r\n\r\n.demo-header {\r\n\tpadding: 20px;\r\n\r\n\th1 {\r\n\t\ttext-transform: uppercase;\r\n\t}\r\n}\r\n\r\n#DemoContainer {\r\n\tpadding: 0 20px;\r\n\r\n\tsection {\r\n\t\tmargin: 10px 0;\r\n\t\tdisplay: flex;\r\n\t\tborder-top: 2px solid black;\r\n\r\n\t\t.title {\r\n\t\t\torder: 0;\r\n\t\t\tflex-basis: auto;\r\n\t\t\tflex-grow: 0;\r\n\t\t\tflex-shrink: 0;\r\n\t\t\twidth: 160px;\r\n\t\t}\r\n\r\n\t\t.display {\r\n\t\t\torder: 1;\r\n\t\t\tflex-grow: 1;\r\n\t\t\tflex-shrink: 0;\r\n\t\t\tflex-wrap: wrap; \r\n\r\n\t\t\t.usage {\r\n\t\t\t\tdisplay: inline-block;\r\n\t\t\t\tpadding: 10px 0;\r\n\t\t\t\twidth: 100%;\r\n\t\t\t}\r\n\r\n\t\t\t.demo {\r\n\t\t\t\tdisplay: flex;\r\n\r\n\t\t\t\t.properties {\r\n\t\t\t\t\torder: 0;\r\n\t\t\t\t\tflex-grow: 0;\r\n\t\t\t\t\tflex-shrink: 0;\r\n\r\n\t\t\t\t\tdiv {\r\n\t\t\t\t\t\tdisplay: flex;\r\n\t\t\t\t\t\tmargin-bottom: 5px;\r\n\r\n\t\t\t\t\t\tlabel {\r\n\t\t\t\t\t\t\torder: 0;\r\n\t\t\t\t\t\t\tflex-grow: 0;\r\n\t\t\t\t\t\t\tflex-shrink: 0;\r\n\t\t\t\t\t\t\twidth: 25%;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tinput {\r\n\t\t\t\t\t\t\torder: 1;\r\n\t\t\t\t\t\t\tflex-grow: 1;\r\n\t\t\t\t\t\t\tflex-shrink: 1;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\r\n\t\t\t\t.component {\r\n\t\t\t\t\torder: 1;\r\n\t\t\t\t\tflex-grow: 1;\r\n\t\t\t\t\tflex-shrink: 1;\r\n\t\t\t\t\tpadding-left: 40px;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\n\r\ninput.error {\r\n\tcolor: red;\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -22537,7 +22540,7 @@
 		
 		exports.default = _extends({
 		    styles: ['default', 'vanilla', 'mint']
-		}, __webpack_require__(/*! ./components/button/button */ 1), __webpack_require__(/*! ./components/charts/simple-bar/simple-bar-chart */ 39), __webpack_require__(/*! ./components/charts/simple-line/simple-line-chart */ 59));
+		}, __webpack_require__(/*! ./components/button/button */ 1), __webpack_require__(/*! ./components/charts/bar/html */ 39), __webpack_require__(/*! ./components/charts/bar/simple */ 59), __webpack_require__(/*! ./components/charts/line/simple */ 62));
 	
 	/***/ },
 	/* 1 */
@@ -27253,9 +27256,9 @@
 	
 	/***/ },
 	/* 39 */
-	/*!***************************************************************!*\
-	  !*** ./src/components/charts/simple-bar/simple-bar-chart.jsx ***!
-	  \***************************************************************/
+	/*!********************************************!*\
+	  !*** ./src/components/charts/bar/html.jsx ***!
+	  \********************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		'use strict';
@@ -27263,7 +27266,7 @@
 		Object.defineProperty(exports, "__esModule", {
 		    value: true
 		});
-		exports.SimpleBarChart = undefined;
+		exports.HtmlBarChart = undefined;
 		
 		var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 		
@@ -27277,7 +27280,7 @@
 		
 		var d3 = _interopRequireWildcard(_d);
 		
-		__webpack_require__(/*! ./simple-bar-chart.scss */ 57);
+		__webpack_require__(/*! ./html.scss */ 57);
 		
 		function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 		
@@ -27289,63 +27292,23 @@
 		
 		function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 		
-		var SimpleBarChart = exports.SimpleBarChart = function (_Component) {
-		    _inherits(SimpleBarChart, _Component);
+		var HtmlBarChart = exports.HtmlBarChart = function (_Component) {
+		    _inherits(HtmlBarChart, _Component);
 		
-		    function SimpleBarChart() {
-		        _classCallCheck(this, SimpleBarChart);
+		    function HtmlBarChart() {
+		        _classCallCheck(this, HtmlBarChart);
 		
-		        return _possibleConstructorReturn(this, (SimpleBarChart.__proto__ || Object.getPrototypeOf(SimpleBarChart)).apply(this, arguments));
+		        return _possibleConstructorReturn(this, (HtmlBarChart.__proto__ || Object.getPrototypeOf(HtmlBarChart)).apply(this, arguments));
 		    }
 		
-		    _createClass(SimpleBarChart, [{
+		    _createClass(HtmlBarChart, [{
 		        key: 'render',
-		
-		
-		        // constructor () {
-		        //     super()
-		        //     this.state = {}
-		
-		        //     this.componentWillMount = this.componentWillMount.bind(this)
-		        //     this.connectFauxDOM = this.connectFauxDOM.bind(this)
-		        //     this.drawFauxDOM = this.drawFauxDOM.bind(this)
-		        // }
-		
-		        // componentDidMount = () => {
-		        //     const node = this.connectFauxDOM('div', 'chart')
-		
-		        //     this.update = (data, width) => {
-		        //         const scale = d3.scaleLinear()
-		        //                             .domain([0, d3.max(data)])
-		        //                             .range([0, width])
-		
-		        //         d3.select(node).selectAll('div')
-		        //             .data(data)
-		        //                 .enter().append('div')
-		        //                     .style('width', (d) => (scale(d) + 'px'))
-		        //                     .text(d => d)
-		        //     }
-		
-		        //     this.update(this.props.data, this.props.width)
-		        // }
-		
-		        // componentWillUpdate = (nextProps, nextState) => {
-		        //     this.update(nextProps.data, nextProps.width)
-		        //     console.log({nextProps, nextState})
-		        // }
-		
-		        // render () {
-		        //     return (<rc-simple-bar-chart>
-		        //       {this.state['chart']}
-		        //     </rc-simple-bar-chart>)
-		        // }
-		
 		        value: function render() {
 		            var _props = this.props;
 		            var data = _props.data;
 		            var width = _props.width;
 		
-		            var node = _reactFauxDom2.default.createElement('rc-simple-bar-chart');
+		            var node = _reactFauxDom2.default.createElement('rc-html-bar-chart');
 		
 		            var scale = d3.scaleLinear().domain([0, d3.max(data)]).range([0, width]);
 		
@@ -27359,15 +27322,10 @@
 		        }
 		    }]);
 		
-		    return SimpleBarChart;
+		    return HtmlBarChart;
 		}(_react.Component);
 		
-		// SimpleBarChart.prototype.componentWillMount = Faux.mixins.core.componentWillMount
-		// SimpleBarChart.prototype.connectFauxDOM = Faux.mixins.core.connectFauxDOM
-		// SimpleBarChart.prototype.drawFauxDOM = Faux.mixins.core.drawFauxDOM
-		
-		
-		SimpleBarChart.propTypes = {
+		HtmlBarChart.propTypes = {
 		    data: _react.PropTypes.array.isRequired,
 		    width: _react.PropTypes.number.isRequired
 		};
@@ -46680,15 +46638,15 @@
 	
 	/***/ },
 	/* 57 */
-	/*!****************************************************************!*\
-	  !*** ./src/components/charts/simple-bar/simple-bar-chart.scss ***!
-	  \****************************************************************/
+	/*!*********************************************!*\
+	  !*** ./src/components/charts/bar/html.scss ***!
+	  \*********************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		// style-loader: Adds some css to the DOM by adding a <style> tag
 		
 		// load the styles
-		var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple-bar-chart.scss */ 58);
+		var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./html.scss */ 58);
 		if(typeof content === 'string') content = [[module.id, content, '']];
 		// add the styles to the DOM
 		var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
@@ -46697,8 +46655,8 @@
 		if(false) {
 			// When the styles change, update the <style> tags
 			if(!content.locals) {
-				module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-bar-chart.scss", function() {
-					var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-bar-chart.scss");
+				module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./html.scss", function() {
+					var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./html.scss");
 					if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 					update(newContent);
 				});
@@ -46709,9 +46667,9 @@
 	
 	/***/ },
 	/* 58 */
-	/*!*******************************************************************************************************************!*\
-	  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/simple-bar/simple-bar-chart.scss ***!
-	  \*******************************************************************************************************************/
+	/*!************************************************************************************************!*\
+	  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/bar/html.scss ***!
+	  \************************************************************************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
@@ -46719,16 +46677,151 @@
 		
 		
 		// module
-		exports.push([module.id, "rc-simple-bar-chart div {\n  text-align: right;\n  padding: 3px;\n  margin: 1px; }\n", "", {"version":3,"sources":["/./src/components/charts/simple-bar/src/components/charts/simple-bar/simple-bar-chart.scss"],"names":[],"mappings":"AACA;EAEQ,kBAAkB;EAClB,aAAa;EACb,YAAY,EACf","file":"simple-bar-chart.scss","sourcesContent":["\r\nrc-simple-bar-chart {\r\n    div {\r\n        text-align: right;\r\n        padding: 3px;\r\n        margin: 1px;\r\n    }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+		exports.push([module.id, "rc-html-bar-chart div {\n  text-align: right;\n  padding: 3px;\n  margin: 1px; }\n", "", {"version":3,"sources":["/./src/components/charts/bar/src/components/charts/bar/html.scss"],"names":[],"mappings":"AACA;EAEQ,kBAAkB;EAClB,aAAa;EACb,YAAY,EACf","file":"html.scss","sourcesContent":["\r\nrc-html-bar-chart {\r\n    div {\r\n        text-align: right;\r\n        padding: 3px;\r\n        margin: 1px;\r\n    }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 		
 		// exports
 	
 	
 	/***/ },
 	/* 59 */
-	/*!*****************************************************************!*\
-	  !*** ./src/components/charts/simple-line/simple-line-chart.jsx ***!
-	  \*****************************************************************/
+	/*!**********************************************!*\
+	  !*** ./src/components/charts/bar/simple.jsx ***!
+	  \**********************************************/
+	/***/ function(module, exports, __webpack_require__) {
+	
+		'use strict';
+		
+		Object.defineProperty(exports, "__esModule", {
+		    value: true
+		});
+		exports.SimpleBarChart = undefined;
+		
+		var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+		
+		var _react = __webpack_require__(/*! react */ 2);
+		
+		var _reactFauxDom = __webpack_require__(/*! react-faux-dom */ 40);
+		
+		var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
+		
+		var _d = __webpack_require__(/*! d3 */ 56);
+		
+		var d3 = _interopRequireWildcard(_d);
+		
+		__webpack_require__(/*! ./simple.scss */ 60);
+		
+		function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+		
+		function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+		
+		function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+		
+		function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+		
+		function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+		
+		var SimpleBarChart = exports.SimpleBarChart = function (_Component) {
+		    _inherits(SimpleBarChart, _Component);
+		
+		    function SimpleBarChart() {
+		        _classCallCheck(this, SimpleBarChart);
+		
+		        return _possibleConstructorReturn(this, (SimpleBarChart.__proto__ || Object.getPrototypeOf(SimpleBarChart)).apply(this, arguments));
+		    }
+		
+		    _createClass(SimpleBarChart, [{
+		        key: 'render',
+		        value: function render() {
+		            var _props = this.props;
+		            var data = _props.data;
+		            var scale = _props.scale;
+		
+		            var node = _reactFauxDom2.default.createElement('rc-simple-bar-chart');
+		
+		            var barHeight = Math.floor(scale.height / data.length);
+		
+		            var xScale = d3.scaleLinear().domain([0, d3.max(data)]).range([0, scale.width]);
+		
+		            var chart = d3.select(node).append('svg').attr('height', scale.height).attr('width', scale.width);
+		
+		            var bar = chart.selectAll('g').data(data).enter().append('g').attr('transform', function (d, i) {
+		                return 'translate(0,' + i * barHeight + ')';
+		            });
+		
+		            bar.append('rect').attr('width', xScale).attr('height', barHeight - 1);
+		
+		            bar.append('text').attr('x', function (d) {
+		                return xScale(d) - 3;
+		            }).attr('y', barHeight / 2).attr('dy', '.35em').text(function (d) {
+		                return d;
+		            });
+		
+		            return node.toReact();
+		        }
+		    }]);
+		
+		    return SimpleBarChart;
+		}(_react.Component);
+		
+		SimpleBarChart.propTypes = {
+		    data: _react.PropTypes.arrayOf(_react.PropTypes.number).isRequired,
+		    scale: _react.PropTypes.shape({
+		        height: _react.PropTypes.number.isRequired,
+		        width: _react.PropTypes.number.isRequired
+		    }).isRequired
+		};
+	
+	/***/ },
+	/* 60 */
+	/*!***********************************************!*\
+	  !*** ./src/components/charts/bar/simple.scss ***!
+	  \***********************************************/
+	/***/ function(module, exports, __webpack_require__) {
+	
+		// style-loader: Adds some css to the DOM by adding a <style> tag
+		
+		// load the styles
+		var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 61);
+		if(typeof content === 'string') content = [[module.id, content, '']];
+		// add the styles to the DOM
+		var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
+		if(content.locals) module.exports = content.locals;
+		// Hot Module Replacement
+		if(false) {
+			// When the styles change, update the <style> tags
+			if(!content.locals) {
+				module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss", function() {
+					var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss");
+					if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+					update(newContent);
+				});
+			}
+			// When the module is disposed, remove the <style> tags
+			module.hot.dispose(function() { update(); });
+		}
+	
+	/***/ },
+	/* 61 */
+	/*!**************************************************************************************************!*\
+	  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/bar/simple.scss ***!
+	  \**************************************************************************************************/
+	/***/ function(module, exports, __webpack_require__) {
+	
+		exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
+		// imports
+		
+		
+		// module
+		exports.push([module.id, "rc-simple-bar-chart text {\n  text-anchor: end; }\n", "", {"version":3,"sources":["/./src/components/charts/bar/src/components/charts/bar/simple.scss"],"names":[],"mappings":"AACA;EAKE,iBAAiB,EACjB","file":"simple.scss","sourcesContent":["\r\nrc-simple-bar-chart {\r\n\trect {\r\n\t}\r\n\r\n\ttext {\r\n\t\ttext-anchor: end;\r\n\t}\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+		
+		// exports
+	
+	
+	/***/ },
+	/* 62 */
+	/*!***********************************************!*\
+	  !*** ./src/components/charts/line/simple.jsx ***!
+	  \***********************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		'use strict';
@@ -46750,7 +46843,7 @@
 		
 		var d3 = _interopRequireWildcard(_d);
 		
-		__webpack_require__(/*! ./simple-line-chart.scss */ 60);
+		__webpack_require__(/*! ./simple.scss */ 63);
 		
 		function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 		
@@ -46833,16 +46926,16 @@
 		};
 	
 	/***/ },
-	/* 60 */
-	/*!******************************************************************!*\
-	  !*** ./src/components/charts/simple-line/simple-line-chart.scss ***!
-	  \******************************************************************/
+	/* 63 */
+	/*!************************************************!*\
+	  !*** ./src/components/charts/line/simple.scss ***!
+	  \************************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		// style-loader: Adds some css to the DOM by adding a <style> tag
 		
 		// load the styles
-		var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple-line-chart.scss */ 61);
+		var content = __webpack_require__(/*! !./../../../../~/css-loader?sourceMap!./../../../../~/sass-loader?sourceMap!./simple.scss */ 64);
 		if(typeof content === 'string') content = [[module.id, content, '']];
 		// add the styles to the DOM
 		var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 38)(content, {});
@@ -46851,8 +46944,8 @@
 		if(false) {
 			// When the styles change, update the <style> tags
 			if(!content.locals) {
-				module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-line-chart.scss", function() {
-					var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple-line-chart.scss");
+				module.hot.accept("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss", function() {
+					var newContent = require("!!./../../../../node_modules/css-loader/index.js?sourceMap!./../../../../node_modules/sass-loader/index.js?sourceMap!./simple.scss");
 					if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 					update(newContent);
 				});
@@ -46862,10 +46955,10 @@
 		}
 	
 	/***/ },
-	/* 61 */
-	/*!*********************************************************************************************************************!*\
-	  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/simple-line/simple-line-chart.scss ***!
-	  \*********************************************************************************************************************/
+	/* 64 */
+	/*!***************************************************************************************************!*\
+	  !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./src/components/charts/line/simple.scss ***!
+	  \***************************************************************************************************/
 	/***/ function(module, exports, __webpack_require__) {
 	
 		exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 37)();
@@ -46873,7 +46966,7 @@
 		
 		
 		// module
-		exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple-line-chart.scss","sourceRoot":"webpack://"}]);
+		exports.push([module.id, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"simple.scss","sourceRoot":"webpack://"}]);
 		
 		// exports
 	
@@ -46884,6 +46977,145 @@
 
 /***/ },
 /* 181 */
+/*!********************************************!*\
+  !*** ./src/demo/charts/html-bar-chart.jsx ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.HtmlBarChartDemo = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactComponents = __webpack_require__(/*! ../../../dist/react-components */ 180);
+	
+	var _reactComponents2 = _interopRequireDefault(_reactComponents);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var HtmlBarChartDemo = exports.HtmlBarChartDemo = function (_Component) {
+	    _inherits(HtmlBarChartDemo, _Component);
+	
+	    function HtmlBarChartDemo() {
+	        _classCallCheck(this, HtmlBarChartDemo);
+	
+	        var _this = _possibleConstructorReturn(this, (HtmlBarChartDemo.__proto__ || Object.getPrototypeOf(HtmlBarChartDemo)).call(this));
+	
+	        _this.handleData = function (event) {
+	            var dataEntry = event.target.value;
+	            try {
+	                var data = JSON.parse(dataEntry);
+	                _this.setState({ data: data, dataEntry: dataEntry, dataClass: '' });
+	            } catch (err) {
+	                _this.setState({ dataEntry: dataEntry, dataClass: 'error' });
+	            }
+	        };
+	
+	        _this.handleWidth = function (event) {
+	            var width = parseInt(event.target.value, 10);
+	            if (width && width > 0) {
+	                _this.setState({ width: width });
+	            }
+	        };
+	
+	        _this.state = {
+	            data: [1, 1, 2, 3, 5, 8, 13],
+	            dataEntry: '[1, 1, 2, 3, 5, 8, 13]',
+	            dataClass: '',
+	            width: 390
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(HtmlBarChartDemo, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'section',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'HTML Bar Chart'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'display' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'usage' },
+	                        _react2.default.createElement(
+	                            'code',
+	                            null,
+	                            '<HtmlBarChart data={data} width={width} />'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'demo' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'properties' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'data:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    value: this.state.dataEntry,
+	                                    onChange: this.handleData,
+	                                    className: this.state.dataClass })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'width:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'number',
+	                                    value: this.state.width,
+	                                    onChange: this.handleWidth })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'component' },
+	                            _react2.default.createElement(_reactComponents2.default.HtmlBarChart, { data: this.state.data, width: this.state.width })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return HtmlBarChartDemo;
+	}(_react.Component);
+
+/***/ },
+/* 182 */
 /*!**********************************************!*\
   !*** ./src/demo/charts/simple-bar-chart.jsx ***!
   \**********************************************/
@@ -46932,16 +47164,26 @@
 	            }
 	        };
 	
+	        _this.handleHeight = function (event) {
+	            var height = parseInt(event.target.value, 10);
+	            if (height && height > 2 * _this.state.data.length) {
+	                _this.setState({ height: height });
+	            }
+	        };
+	
 	        _this.handleWidth = function (event) {
 	            var width = parseInt(event.target.value, 10);
-	            _this.setState({ width: width });
+	            if (width && width > 0) {
+	                _this.setState({ width: width });
+	            }
 	        };
 	
 	        _this.state = {
-	            data: [1, 1, 2, 3, 5, 8, 13],
-	            dataEntry: '[1, 1, 2, 3, 5, 8, 13]',
+	            data: [1, 1, 2, 3, 5, 8, 13, 21, 34],
+	            dataEntry: '[1, 1, 2, 3, 5, 8, 13, 21, 34]',
 	            dataClass: '',
-	            width: 630
+	            height: 180,
+	            width: 510
 	        };
 	        return _this;
 	    }
@@ -46952,10 +47194,79 @@
 	            return _react2.default.createElement(
 	                'section',
 	                null,
-	                _react2.default.createElement('input', { type: 'text', value: this.state.dataEntry,
-	                    onChange: this.handleData, className: this.state.dataClass }),
-	                _react2.default.createElement('input', { type: 'number', value: this.state.width, onChange: this.handleWidth }),
-	                _react2.default.createElement(_reactComponents2.default.SimpleBarChart, { data: this.state.data, width: this.state.width })
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'Simple SVG Bar Chart'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'display' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'usage' },
+	                        _react2.default.createElement(
+	                            'code',
+	                            null,
+	                            '<SimpleBarChart data={data} scale={{height, width}} />'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'demo' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'properties' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'data:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    value: this.state.dataEntry,
+	                                    onChange: this.handleData,
+	                                    className: this.state.dataClass })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'height:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'number',
+	                                    value: this.state.height,
+	                                    onChange: this.handleHeight })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    'width:'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'number',
+	                                    value: this.state.width,
+	                                    onChange: this.handleWidth })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'component' },
+	                            _react2.default.createElement(_reactComponents2.default.SimpleBarChart, { data: this.state.data,
+	                                scale: { height: this.state.height, width: this.state.width } })
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);

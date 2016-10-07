@@ -11,6 +11,7 @@ window.console && console.log && console.log('>>>>>> react-components <<<<<<<<<'
 window.console && console.log && console.log({rc})
 window.console && console.log && console.log('>>>>>> react-components <<<<<<<<<')
 
+import {HtmlBarChartDemo} from './charts/html-bar-chart.jsx'
 import {SimpleBarChartDemo} from './charts/simple-bar-chart.jsx'
 
 class Demo extends Component {
@@ -40,6 +41,7 @@ class Demo extends Component {
               <rc.Button onItemClick={this.styleToggle(this)}>{this.state.selectedStyle}</rc.Button>
             </h4>
           </main>
+          <HtmlBarChartDemo />
           <SimpleBarChartDemo />
         </div>)
     }

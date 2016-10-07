@@ -12,7 +12,64 @@
 	padding: 0 20px;
 
 	section {
-		padding: 20px 0;
+		margin: 10px 0;
+		display: flex;
+		border-top: 2px solid black;
+
+		.title {
+			order: 0;
+			flex-basis: auto;
+			flex-grow: 0;
+			flex-shrink: 0;
+			width: 160px;
+		}
+
+		.display {
+			order: 1;
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-wrap: wrap; 
+
+			.usage {
+				display: inline-block;
+				padding: 10px 0;
+				width: 100%;
+			}
+
+			.demo {
+				display: flex;
+
+				.properties {
+					order: 0;
+					flex-grow: 0;
+					flex-shrink: 0;
+
+					div {
+						display: flex;
+						margin-bottom: 5px;
+
+						label {
+							order: 0;
+							flex-grow: 0;
+							flex-shrink: 0;
+							width: 25%;
+						}
+						input {
+							order: 1;
+							flex-grow: 1;
+							flex-shrink: 1;
+						}
+					}
+				}
+
+				.component {
+					order: 1;
+					flex-grow: 1;
+					flex-shrink: 1;
+					padding-left: 40px;
+				}
+			}
+		}
 	}
 }
 

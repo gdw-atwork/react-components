@@ -16,10 +16,17 @@
   .default rc-button[disabled='disabled'] {
     opacity: 0.4; }
 
-.default rc-simple-bar-chart div {
+.default rc-html-bar-chart div {
   font: 10px sans-serif;
   background-color: steelblue;
   color: white; }
+
+.default rc-simple-bar-chart rect {
+  fill: steelblue; }
+
+.default rc-simple-bar-chart text {
+  fill: white;
+  font: 10px sans-serif; }
 
 .vanilla {
   background: #fdfaee; }
@@ -40,10 +47,15 @@
     background-color: #6881e9; }
     .vanilla rc-button[disabled='disabled'] {
       opacity: 0.4; }
-  .vanilla rc-simple-bar-chart div {
+  .vanilla rc-html-bar-chart div {
     font: 10px sans-serif;
     background-color: #6881e9;
     color: #f3e5ab; }
+  .vanilla rc-simple-bar-chart rect {
+    fill: #6881e9; }
+  .vanilla rc-simple-bar-chart text {
+    fill: #f3e5ab;
+    font: 10px sans-serif; }
 
 .mint {
   background: #f5fffa; }
@@ -64,9 +76,14 @@
     background-color: #ff98ff; }
     .mint rc-button[disabled='disabled'] {
       opacity: 0.4; }
-  .mint rc-simple-bar-chart div {
+  .mint rc-html-bar-chart div {
     font: 10px sans-serif;
     background-color: #ff98ff;
     color: #98ff98; }
+  .mint rc-simple-bar-chart rect {
+    fill: #ff98ff; }
+  .mint rc-simple-bar-chart text {
+    fill: #98ff98;
+    font: 10px sans-serif; }
 
 /*# sourceMappingURL=react-components.css.map*/

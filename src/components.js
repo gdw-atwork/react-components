@@ -1,6 +1,7 @@
 export default {
     styles: ['default', 'vanilla', 'mint'],
     ...require('./components/button/button'),
-    ...require('./components/charts/simple-bar/simple-bar-chart'),
-    ...require('./components/charts/simple-line/simple-line-chart')
+    ...require('./components/charts/bar/html'),
+    ...require('./components/charts/bar/simple'),
+    ...require('./components/charts/line/simple')
 }

@@ -2,7 +2,7 @@ import {Component, PropTypes} from 'react'
 import Faux from 'react-faux-dom'
 import * as d3 from 'd3'
 
-import './simple-line-chart.scss'
+import './simple.scss'
 
 export class SimpleLineChart extends Component {
     static propTypes = {
